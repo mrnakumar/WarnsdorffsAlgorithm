@@ -1,0 +1,35 @@
+plugins {
+    id 'java'
+}
+
+group 'com.knight'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+ext {
+    junit_jupiter_version = "5.4.2"
+    mockito_core_version = "2.21.0"
+    mockito_junit_jupiter_version = "3.0.0"
+}
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'com.truecaller.assignment.Main'
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junit_jupiter_version}")
+    testImplementation "org.mockito:mockito-core:${mockito_core_version}"
+    testImplementation "org.mockito:mockito-junit-jupiter:${mockito_junit_jupiter_version}"
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:${junit_jupiter_version}")
+}
